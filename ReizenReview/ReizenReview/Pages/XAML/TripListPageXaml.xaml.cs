@@ -1,16 +1,19 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using ReizenReview.Models;
 using Xamarin.Forms;
 
-namespace ReizenReview.Pages
+namespace ReizenReview.Pages.XAML
 {
-    public class TripListPage : ContentPage
+    public partial class TripListPageXaml
     {
         public ObservableCollection<Trip> Trips { get; set; } 
-
-        public TripListPage()
+        public TripListPageXaml()
         {
-            this.Title = "Trips";
             Trips = new ObservableCollection<Trip>()
             {
                 new Trip() {Description = "Hotel trip all-in", Location = "Bermuda"},
@@ -20,34 +23,22 @@ namespace ReizenReview.Pages
             };
             foreach (var trip in Trips)
             {
-                trip.Reviews.Add(new Review(){Commentary = "Splendid!",Score= 7});
+                trip.Reviews.Add(new Review() { Commentary = "Splendid!", Score = 7 });
             }
-
-            BackgroundColor = Constants.BackgroundColor;
-            var cellTemplate = new DataTemplate(typeof (TripCell));
-            var triplist = new ListView()
-            {
-                ItemsSource = Trips,
-                ItemTemplate = cellTemplate,
-                RowHeight = 100,
-                BackgroundColor = Constants.BackgroundColor
-            };
-
-            triplist.ItemSelected +=
+            InitializeComponent();
+            this.Title = "Trips";
+            //todo: get this working
+            //tripList.ItemsSource = Trips;
+            tripList.ItemSelected +=
                 (sender, args) =>
                 {
                     var page = PageFactory.TripPage as TripPage;
-                    var trip = (Trip) args.SelectedItem;
+                    var trip = (Trip)args.SelectedItem;
                     page.Trip = trip;
                     Device.OnPlatform(
                         WinPhone: () => { PageFactory.AddReviewPage.Reviews = trip.Reviews; },
                         Default: () => this.Navigation.PushAsync(page));
                 };
-
-            Content = triplist;
         }
-
-
-        
     }
 }

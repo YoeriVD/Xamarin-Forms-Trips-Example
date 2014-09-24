@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ReizenReview;assembly=ReizenReview"
+					   x:Class="ReizenReview.Pages.XAML.TripListPageXaml"
+             BackgroundColor="{x:Static local:Constants.BackgroundColor}">
+  <ListView RowHeight="20"
+            BackgroundColor="{x:Static local:Constants.BackgroundColor}"
+            x:Name="tripList">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <ViewCell.View>
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90*"/>
+                <ColumnDefinition Width="10*"/>
+              </Grid.ColumnDefinitions>
+              <Grid.RowDefinitions>
+                <RowDefinition Height ="50*"/>
+                <RowDefinition Height ="50*"/>
+              </Grid.RowDefinitions>
+              <Label YAlign="Center" XAlign="Center" Font="Bold, 18" Text="{Binding Location}"/>
+              <Label Grid.Column="1" YAlign="Center" XAlign="End" Font="26" Text="{Binding AverageScore}" />
+              <Label Grind.Row="1" Grid.ColumnSpan="2" YAlign="Start" XAlign="Start" Text="{Binding Description}"/>
+            </Grid>
+          </ViewCell.View>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+
+  </ListView>
+</ContentPage>

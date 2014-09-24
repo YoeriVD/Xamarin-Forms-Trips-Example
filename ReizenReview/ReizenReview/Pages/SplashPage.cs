@@ -36,13 +36,13 @@ namespace ReizenReview.Pages
             };
             var layout = new StackLayout
             {
-                BackgroundColor = App.Constants.BackgroundColor,
+                BackgroundColor = Constants.BackgroundColor,
                 Children = { image, entry, button },
                 VerticalOptions = LayoutOptions.Center,
                 HorizontalOptions = LayoutOptions.Center
             };
 
-            BackgroundColor = App.Constants.BackgroundColor;
+            BackgroundColor = Constants.BackgroundColor;
             Content = new ScrollView() { Content = layout };
         }
     }

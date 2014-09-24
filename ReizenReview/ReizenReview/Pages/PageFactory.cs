@@ -1,10 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using ReizenReview.Pages.XAML;
+using Xamarin.Forms;
 
 namespace ReizenReview.Pages
 {
     public static class PageFactory
     {
-        internal static Page SplashPage { get { return new NavigationPage(new SplashPage()); } }
+        internal static Page SplashPage { get { return new NavigationPage(new SplashPageXaml()); } }
 
         internal static Page MainPage
         {
@@ -14,15 +15,15 @@ namespace ReizenReview.Pages
                 Device.OnPlatform(
                     WinPhone: () => mainPage = new CarouselPage()
                     {
-                        BackgroundColor = App.Constants.BackgroundColor,
+                        BackgroundColor = Constants.BackgroundColor,
                         Children = 
                         { 
-                            new TripListPage(),
+                            new TripListPageXaml(),
                             PageFactory.TripPage,
                             PageFactory.AddReviewPage
                         }
                     },
-                    Default: () => mainPage = new TripListPage()
+                    Default: () => mainPage = new TripListPageXaml()
                     );
                 return mainPage;
             }

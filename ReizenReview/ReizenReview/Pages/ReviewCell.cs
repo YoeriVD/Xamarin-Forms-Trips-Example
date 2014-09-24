@@ -25,7 +25,7 @@ namespace ReizenReview.Pages
             grid.Children.Add(commentary);
             grid.Children.Add(score, 1, 0);
 
-            grid.BackgroundColor = App.Constants.BackgroundColor;
+            grid.BackgroundColor = Constants.BackgroundColor;
 
             this.View = grid;
         }

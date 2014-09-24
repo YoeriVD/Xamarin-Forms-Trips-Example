@@ -21,7 +21,7 @@ namespace ReizenReview.Pages
         public TripPage()
         {
             this.Padding = new Thickness(2, 2, 2, Device.OnPlatform<double>(2,2,10));
-            this.BackgroundColor = App.Constants.BackgroundColor;
+            this.BackgroundColor = Constants.BackgroundColor;
 
             this.SetBinding(TitleProperty, "Location");
             var description = new Label() { XAlign = TextAlignment.Center, YAlign = TextAlignment.Center };
@@ -29,7 +29,7 @@ namespace ReizenReview.Pages
             var reviews = new ListView()
             {
                 ItemTemplate = new DataTemplate(typeof(ReviewCell)),
-                BackgroundColor = App.Constants.BackgroundColor,
+                BackgroundColor = Constants.BackgroundColor,
                 RowHeight = 50
             };
             reviews.SetBinding(ListView.ItemsSourceProperty, "Reviews");

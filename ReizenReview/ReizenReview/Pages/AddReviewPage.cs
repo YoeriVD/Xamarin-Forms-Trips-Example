@@ -12,7 +12,7 @@ namespace ReizenReview.Pages
         public AddReviewPage()
         {
             Clear();
-            BackgroundColor = App.Constants.BackgroundColor;
+            BackgroundColor = Constants.BackgroundColor;
             //editor
             var editor = new Editor() {HeightRequest = 200};
             editor.SetBinding(Editor.TextProperty, "Commentary");

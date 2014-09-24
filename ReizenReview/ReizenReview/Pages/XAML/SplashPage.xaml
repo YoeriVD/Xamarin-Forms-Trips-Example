@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ReizenReview;assembly=ReizenReview"
+					   x:Class="ReizenReview.Pages.XAML.SplashPageXaml"
+             BackgroundColor="{x:Static local:Constants.BackgroundColor}"
+             >
+  <ScrollView>
+    <StackLayout VerticalOptions="Center"
+                 HorizontalOptions="Center">
+      <Image Aspect="AspectFit" Source="{local:ImageResource ReizenReview.palmtree.png}"/>
+      <Entry x:Name="nameEntry" Placeholder="Fill in your name"
+             TextColor="White"
+             BackgroundColor="Transparent"
+             Text=""/>
+      <Button x:Name="loginButton" Text="log in"
+              BackgroundColor="Transparent"
+              TextColor="White" />
+    </StackLayout>
+  </ScrollView>
+</ContentPage>

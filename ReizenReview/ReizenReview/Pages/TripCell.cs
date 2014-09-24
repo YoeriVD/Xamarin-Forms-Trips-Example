@@ -46,7 +46,7 @@ namespace ReizenReview.Pages
             location.SetBinding(Label.TextProperty, "Location");
             score.SetBinding(Label.TextProperty, "AverageScore");
             description.SetBinding(Label.TextProperty, "Description");
-            grid.BackgroundColor = App.Constants.BackgroundColor;
+            grid.BackgroundColor = Constants.BackgroundColor;
             this.View = grid;
         }
     }
