@@ -13,7 +13,18 @@ namespace ReizenReview.ViewModels
     public class AddReviewViewModel : ViewModelBase
     {
         public ObservableCollection<Review> Reviews { get; set; }
-        public Review NewReview { get; set; }
+        private Review _newReview;
+
+        public Review NewReview
+        {
+            get { return _newReview; }
+            set
+            {
+                if (value == _newReview) return;
+                _newReview = value;
+                RaisePropertyChanged();
+            }
+        }
         public Action OnFinished { get; set; }
         public ICommand AddCommand
         {

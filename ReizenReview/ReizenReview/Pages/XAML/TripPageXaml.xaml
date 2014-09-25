@@ -21,7 +21,7 @@
                     <ColumnDefinition Width="20"/>
                   </Grid.ColumnDefinitions>
                   <Label Grid.Column="0" Grid.Row="0" Text="{Binding Commentary}" />
-                  <Label Grid.Column="0" Grid.Row="1" YAlign="Center" XAlign="Center" Font="22" Text="{Binding Score}" />
+                  <Label Grid.Column="1" Grid.Row="0" YAlign="Center" XAlign="Center" Font="22" Text="{Binding Score}" />
                 </Grid>
               </ViewCell.View>
             </ViewCell>
