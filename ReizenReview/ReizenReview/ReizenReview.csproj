@@ -38,18 +38,18 @@
     <Compile Include="ImageResourceExtension.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\Trip.cs" />
-    <Compile Include="Pages\AddReviewPage.cs" />
-    <Compile Include="Pages\TripListPage.cs" />
     <Compile Include="Pages\PageFactory.cs" />
-    <Compile Include="Pages\ReviewCell.cs" />
-    <Compile Include="Pages\SplashPage.cs" />
-    <Compile Include="Pages\TripCell.cs" />
-    <Compile Include="Pages\TripPage.cs" />
+    <Compile Include="Pages\XAML\AddReviewPageXaml.xaml.cs">
+      <DependentUpon>AddReviewPageXaml.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\XAML\SplashPage.xaml.cs">
       <DependentUpon>SplashPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\XAML\TripListPageXaml.xaml.cs">
       <DependentUpon>TripListPageXaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\XAML\TripPageXaml.xaml.cs">
+      <DependentUpon>TripPageXaml.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +76,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\XAML\TripListPageXaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\XAML\TripPageXaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\XAML\AddReviewPageXaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

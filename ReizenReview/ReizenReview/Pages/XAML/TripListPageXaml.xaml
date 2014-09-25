@@ -4,8 +4,10 @@
              xmlns:local="clr-namespace:ReizenReview;assembly=ReizenReview"
 					   x:Class="ReizenReview.Pages.XAML.TripListPageXaml"
              BackgroundColor="{x:Static local:Constants.BackgroundColor}">
-  <ListView RowHeight="20"
+  <ListView RowHeight="100"
             BackgroundColor="{x:Static local:Constants.BackgroundColor}"
+            ItemsSource="{Binding Trips}"
+            ItemSelected="TripListItemSelected"
             x:Name="tripList">
     <ListView.ItemTemplate>
       <DataTemplate>
@@ -20,9 +22,9 @@
                 <RowDefinition Height ="50*"/>
                 <RowDefinition Height ="50*"/>
               </Grid.RowDefinitions>
-              <Label YAlign="Center" XAlign="Center" Font="Bold, 18" Text="{Binding Location}"/>
-              <Label Grid.Column="1" YAlign="Center" XAlign="End" Font="26" Text="{Binding AverageScore}" />
-              <Label Grind.Row="1" Grid.ColumnSpan="2" YAlign="Start" XAlign="Start" Text="{Binding Description}"/>
+              <Label Grid.Row="0" Grid.Column="0" YAlign="Center" XAlign="Center" Font="Bold, 18" Text="{Binding Location}"/>
+              <Label Grid.Row="0" Grid.Column="1" YAlign="Center" XAlign="End" Font="26" Text="{Binding AverageScore}" />
+              <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" YAlign="Start" XAlign="Start" Text="{Binding Description}"/>
             </Grid>
           </ViewCell.View>
         </ViewCell>

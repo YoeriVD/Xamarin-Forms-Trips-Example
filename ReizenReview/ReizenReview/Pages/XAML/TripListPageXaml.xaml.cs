@@ -11,10 +11,12 @@ namespace ReizenReview.Pages.XAML
 {
     public partial class TripListPageXaml
     {
-        public ObservableCollection<Trip> Trips { get; set; } 
+        public ObservableCollection<Trip> Trips { get; set; }
         public TripListPageXaml()
         {
-            Trips = new ObservableCollection<Trip>()
+            InitializeComponent();
+            this.Title = "Trips";
+            Trips = new ObservableCollection<Trip>
             {
                 new Trip() {Description = "Hotel trip all-in", Location = "Bermuda"},
                 new Trip() {Description = "Camping trip", Location = "Ardennes"},
@@ -25,20 +27,17 @@ namespace ReizenReview.Pages.XAML
             {
                 trip.Reviews.Add(new Review() { Commentary = "Splendid!", Score = 7 });
             }
-            InitializeComponent();
-            this.Title = "Trips";
-            //todo: get this working
-            //tripList.ItemsSource = Trips;
-            tripList.ItemSelected +=
-                (sender, args) =>
-                {
-                    var page = PageFactory.TripPage as TripPage;
-                    var trip = (Trip)args.SelectedItem;
-                    page.Trip = trip;
-                    Device.OnPlatform(
-                        WinPhone: () => { PageFactory.AddReviewPage.Reviews = trip.Reviews; },
-                        Default: () => this.Navigation.PushAsync(page));
-                };
+            tripList.ItemsSource = Trips;
+        }
+
+        public void TripListItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var page = PageFactory.TripPage as TripPageXaml;
+            var trip = (Trip)args.SelectedItem;
+            page.Trip = trip;
+            Device.OnPlatform(
+                WinPhone: () => { PageFactory.AddReviewPage.Reviews = trip.Reviews; },
+                Default: () => this.Navigation.PushAsync(page));
         }
     }
 }

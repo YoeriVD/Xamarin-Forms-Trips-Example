@@ -29,17 +29,17 @@ namespace ReizenReview.Pages
             }
         }
 
-        private static AddReviewPage _addReviewPage;
+        private static AddReviewPageXaml _addReviewPage;
 
-        public static AddReviewPage AddReviewPage
+        public static AddReviewPageXaml AddReviewPage
         {
-            get { return _addReviewPage ?? (_addReviewPage = new AddReviewPage()); }
+            get { return _addReviewPage ?? (_addReviewPage = new AddReviewPageXaml()); }
         }
 
         private static ContentPage _tripPage;
         internal static ContentPage TripPage
         {
-            get { return _tripPage ?? (_tripPage = new TripPage()); }
+            get { return _tripPage ?? (_tripPage = new TripPageXaml()); }
         }
 
     }

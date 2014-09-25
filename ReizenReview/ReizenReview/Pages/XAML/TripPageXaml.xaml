@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ReizenReview;assembly=ReizenReview"
+             x:Class="ReizenReview.Pages.XAML.TripPageXaml"
+             BackgroundColor="{x:Static local:Constants.BackgroundColor}"
+             Title="{Binding Location}">
+  <StackLayout>
+    <Label Text="{Binding Description}" XAlign="Center" YAlign="Center"/>
+    <StackLayout VerticalOptions="FillAndExpand">
+      <ListView BackgroundColor="Transparent"
+					  ItemsSource="{Binding Reviews}"
+					  RowHeight="50">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <ViewCell.View>
+                <Grid BackgroundColor="Transparent">
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="20"/>
+                  </Grid.ColumnDefinitions>
+                  <Label Grid.Column="0" Grid.Row="0" Text="{Binding Commentary}" />
+                  <Label Grid.Column="0" Grid.Row="1" YAlign="Center" XAlign="Center" Font="22" Text="{Binding Score}" />
+                </Grid>
+              </ViewCell.View>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+    <Button Text="add review" x:Name="addButton">
+      <Button.IsVisible>
+        <OnPlatform x:TypeArguments="x:Boolean" WinPhone="false" iOS="true" Android="true"/>
+      </Button.IsVisible>
+    </Button>
+  </StackLayout>
+</ContentPage>
