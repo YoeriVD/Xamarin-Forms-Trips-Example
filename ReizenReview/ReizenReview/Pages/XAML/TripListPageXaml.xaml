@@ -2,13 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
 					   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ReizenReview;assembly=ReizenReview"
-					   x:Class="ReizenReview.Pages.XAML.TripListPageXaml"
-             BackgroundColor="{x:Static local:Constants.BackgroundColor}">
+             xmlns:factories="clr-namespace:ReizenReview.Factories;assembly=ReizenReview"
+		         x:Class="ReizenReview.Pages.XAML.TripListPageXaml"
+             BackgroundColor="{x:Static local:Constants.BackgroundColor}"
+             Title="Trips">
   <ListView RowHeight="100"
             BackgroundColor="{x:Static local:Constants.BackgroundColor}"
             ItemsSource="{Binding Trips}"
-            ItemSelected="TripListItemSelected"
-            x:Name="tripList">
+            SelectedItem="{Binding SelectedTrip}">
     <ListView.ItemTemplate>
       <DataTemplate>
         <ViewCell>

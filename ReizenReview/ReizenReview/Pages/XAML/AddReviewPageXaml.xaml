@@ -7,10 +7,10 @@
 	<StackLayout>
 		<Label Text="Review:"/>
 		<Editor HeightRequest="200"
-				Text="{Binding Commentary}"/>
+				Text="{Binding NewReview.Commentary}"/>
 		<Label Text="Score:" />
-		<Slider x:Name="scoreSlider" Maximum="10" Minimum="0" Value="{Binding Score, Mode=TwoWay}" ValueChanged="SliderOnValueChanged"/>
+		<Slider x:Name="scoreSlider" Maximum="10" Minimum="0" Value="{Binding NewReview.Score, Mode=TwoWay}" />
 		<Label XAlign="Center" YAlign="Center" BindingContext="{x:Reference scoreSlider}" Text="{Binding Value}" />
-		<Button Text="Add" Clicked="ButtonOnClicked"/>
+		<Button Text="Add" Command="{Binding AddCommand}"/>
 	</StackLayout>
 </ContentPage>

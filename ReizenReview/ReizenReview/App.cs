@@ -1,4 +1,5 @@
-﻿using ReizenReview.Pages;
+﻿using ReizenReview.Factories;
+using ReizenReview.Pages;
 using Xamarin.Forms;
 
 namespace ReizenReview

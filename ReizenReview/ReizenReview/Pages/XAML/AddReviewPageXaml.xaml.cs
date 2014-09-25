@@ -5,41 +5,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ReizenReview.Models;
+using ReizenReview.ViewModels;
 using Xamarin.Forms;
 
 namespace ReizenReview.Pages.XAML
 {
     public partial class AddReviewPageXaml
     {
+        private readonly AddReviewViewModel _addReviewViewModel;
 
-        public ObservableCollection<Review> Reviews { get; set; }
-        public Review NewReview { get; set; }
 
-        public AddReviewPageXaml()
+        public AddReviewPageXaml(AddReviewViewModel addReviewViewModel)
         {
+            _addReviewViewModel = addReviewViewModel;
+            _addReviewViewModel.OnFinished = () =>
+            {
+                Device.OnPlatform(
+                    WinPhone: () => { },
+                    Default: () => this.Navigation.PopAsync());
+            };
             InitializeComponent();
-            Clear();
+            this.BindingContext = _addReviewViewModel;
         }
 
-        private void SliderOnValueChanged(object sender, ValueChangedEventArgs args)
-        {
-            scoreSlider.Value = Math.Round(args.NewValue);
-        }
-
-        private void ButtonOnClicked(object sender, EventArgs eventArgs)
-        {
-            Reviews.Add(NewReview);
-            Clear();
-            Device.OnPlatform(
-                WinPhone: () => { },
-                Default: () => this.Navigation.PopAsync());
-        }
-
-        public void Clear()
-        {
-            NewReview = new Review() { Score = 5 };
-            this.BindingContext = NewReview;
-        }
 
     }
 }

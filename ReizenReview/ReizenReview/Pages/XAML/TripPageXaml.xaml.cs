@@ -3,31 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ReizenReview.Factories;
 using ReizenReview.Models;
+using ReizenReview.ViewModels;
+using Xamarin.Forms;
 
 namespace ReizenReview.Pages.XAML
 {
     public partial class TripPageXaml
     {
 
-        public TripPageXaml()
+        public TripPageXaml(TripViewModel tripViewModel)
         {
             InitializeComponent();
-            addButton.Clicked += (sender, args) =>
+            tripViewModel.AddCommand = new Command(() =>
             {
                 var page = PageFactory.AddReviewPage;
-                page.Reviews = _trip.Reviews;
                 this.Navigation.PushAsync(page);
-            };
-        }
-        private Trip _trip;
-        public Trip Trip
-        {
-            set
-            {
-                this._trip = value;
-                this.BindingContext = this._trip;
-            }
+            });
+
+            this.BindingContext = tripViewModel;
         }
     }
 }

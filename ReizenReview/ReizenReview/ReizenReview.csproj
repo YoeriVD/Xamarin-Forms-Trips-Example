@@ -35,10 +35,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Factories\PageFactory.cs" />
+    <Compile Include="Factories\ViewModelFactory.cs" />
     <Compile Include="ImageResourceExtension.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Models\Trip.cs" />
-    <Compile Include="Pages\PageFactory.cs" />
     <Compile Include="Pages\XAML\AddReviewPageXaml.xaml.cs">
       <DependentUpon>AddReviewPageXaml.xaml</DependentUpon>
     </Compile>
@@ -53,6 +54,10 @@
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AddReviewViewModel.cs" />
+    <Compile Include="ViewModels\TripListViewModel.cs" />
+    <Compile Include="ViewModels\TripViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="palmtree.png" />

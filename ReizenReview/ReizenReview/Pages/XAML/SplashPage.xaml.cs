@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ReizenReview.Factories;
 using Xamarin.Forms;
 
 namespace ReizenReview.Pages.XAML

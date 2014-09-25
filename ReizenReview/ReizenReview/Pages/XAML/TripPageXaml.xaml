@@ -6,10 +6,10 @@
              BackgroundColor="{x:Static local:Constants.BackgroundColor}"
              Title="{Binding Location}">
   <StackLayout>
-    <Label Text="{Binding Description}" XAlign="Center" YAlign="Center"/>
+    <Label Text="{Binding Trip.Description}" XAlign="Center" YAlign="Center"/>
     <StackLayout VerticalOptions="FillAndExpand">
       <ListView BackgroundColor="Transparent"
-					  ItemsSource="{Binding Reviews}"
+					  ItemsSource="{Binding Trip.Reviews}"
 					  RowHeight="50">
         <ListView.ItemTemplate>
           <DataTemplate>
@@ -29,7 +29,7 @@
         </ListView.ItemTemplate>
       </ListView>
     </StackLayout>
-    <Button Text="add review" x:Name="addButton">
+    <Button Text="add review" x:Name="addButton" Command="{Binding AddCommand}">
       <Button.IsVisible>
         <OnPlatform x:TypeArguments="x:Boolean" WinPhone="false" iOS="true" Android="true"/>
       </Button.IsVisible>
